@@ -36,6 +36,7 @@ public class ConversorGrafico extends JFrame{
 	
 	
 	public void mostrarMenu() {
+		
 		menuBar = new JMenuBar();
 		menu = new JMenu("Elija una opcion valida: ");
 		opcion1 =new JMenuItem("Conversor de monedas");
@@ -77,6 +78,8 @@ public class ConversorGrafico extends JFrame{
 				System.exit(0);
 			}
 		});
+		
+		
 	}
 
 }

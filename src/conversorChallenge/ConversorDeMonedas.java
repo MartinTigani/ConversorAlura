@@ -32,7 +32,11 @@ public class ConversorDeMonedas extends JFrame{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocation(400, 200);
 		JPanel panel=new JPanel();
-		cantidad =Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de monedas que desea convertir"));
+		try {
+			cantidad =Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de monedas que desea convertir"));
+		}catch(Exception e) {
+			JOptionPane.showMessageDialog(panel, "Valor no valido, solo se aceptan caracteres decimales");
+		}
 		mostrarMenu();
 		this.add(panel);
 		panel.add(menuBar);

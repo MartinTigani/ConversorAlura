@@ -11,9 +11,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class ConversorMedida extends JFrame{
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JMenuBar menuBar;
 	private JMenu menu;
@@ -22,6 +19,8 @@ public class ConversorMedida extends JFrame{
 	private JMenuItem opcion3;
 	private int cantidad;
 	
+	
+	
 	public ConversorMedida() {
 		setSize(300,200);
 		setTitle("Conversor de medidas");
@@ -29,15 +28,20 @@ public class ConversorMedida extends JFrame{
 		setLocation(400, 200);
 		
 		JPanel panel= new JPanel();
-		cantidad=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la medida que deseas convertir "));
-		
+		try {
+			cantidad=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la medida que deseas convertir "));
+		}catch(Exception e) {
+			JOptionPane.showMessageDialog(null, "Valor no valido, solo se aceptan caracteres decimales");
+		}
 		mostrarMenu();
 		panel.add(menuBar);
 		this.add(panel);
 		this.setVisible(true);
+		
 	}
 	
 	public void mostrarMenu() {
+		
 		menuBar = new JMenuBar();
 		menu = new JMenu("Elija una opcion valida: ");
 		opcion1 =new JMenuItem("1) Centimetros a metros");
@@ -48,6 +52,7 @@ public class ConversorMedida extends JFrame{
 		menu.add(opcion2);
 		menu.add(opcion3);
 		menuBar.add(menu);
+		
 		opcion1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -76,22 +81,7 @@ public class ConversorMedida extends JFrame{
 				System.exit(0);
 			}
 		});
+		
 	}
 	
 }
-/*
-public class ConversorMedida {
-	public static void main(String[] args) {
-		//ConversorGrafico ventana1=new ConversorGrafico();
-		
-		muestra menu 							showimputdialog
-		pregunta que numero quiere convertir	showimputdialog
-		muestra menu moneda						showimputdialog
-		muestra resultado 						showmessagedialog
-		si ingresa distinto de numero exception	showmessagedialog
-		quiere continuar si o no				showconfirmdialog
-		si presiona no o cancelar				showmessagedialog fin
-		
-	}
-}
-	*/
